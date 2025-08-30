@@ -1,0 +1,183 @@
+# IDE and Editor Files
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+
+# NetBeans
+nbproject/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# Claude Code and AI Tools
+.claude/
+claude-*
+*.claude
+CLAUDE.md
+.copilot/
+.ai/
+ai-*
+
+# Build Tools and Dependencies
+# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.properties
+
+# Gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+.gradle/
+gradle-app.setting
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
+
+# Operating System Files
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.tmp
+*.temp
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# Logs and Temporary Files
+*.log
+logs/
+/tmp/
+temp/
+*.tmp
+*.temp
+
+# Application specific logs
+spring.log
+application.log
+/var/log/
+
+# Test and Coverage Reports
+test-output/
+coverage/
+*.coverage
+.nyc_output/
+.jacoco/
+jacoco.exec
+hs_err_pid*
+
+# Security and Configuration Files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.production
+secrets/
+*.key
+*.pem
+*.p12
+*.jks
+config/secrets.yml
+
+# Database Files
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+.docker/
+
+# Deployment and Cloud
+*.kubeconfig
+.terraform/
+*.tfstate
+*.tfstate.*
+.vagrant/
+
+# Package Files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Backup Files
+*.bak
+*.backup
+*.orig
+*.swp
+*.swo
+
+# Runtime and Cache
+.cache/
+.npm/
+.eslintcache
+.parcel-cache/
+.next/
+.nuxt/
+dist/
+
+# Spring Boot
+/spring-boot-actuator.log
+/spring.log
+
+# H2 Database (if used locally)
+*.mv.db
+*.trace.db
+
+# JProfiler
+*.jprofiler

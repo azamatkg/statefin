@@ -1,0 +1,44 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+  
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    database-platform: org.hibernate.dialect.H2Dialect
+  
+  h2:
+    console:
+      enabled: true
+  
+  main:
+    banner-mode: off
+
+logging:
+  level:
+    root: OFF
+
+jwt:
+  secret: TestSecretKeyForJWTTokenGenerationThatIsLongEnoughForHS256Algorithm
+  expiration: 3600000  # 1 hour for tests
+  refresh-expiration: 7200000  # 2 hours for tests
+
+app:
+  initial-data:
+    load-on-startup: true
+    admin:
+      username: testadmin
+      email: testadmin@test.com
+      password: TestAdmin123!
+    user:
+      username: testuser
+      email: testuser@test.com
+      password: TestUser123!
+    manager:
+      username: testmanager
+      email: testmanager@test.com
+      password: TestManager123!
