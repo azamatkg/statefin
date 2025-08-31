@@ -1,6 +1,6 @@
 package kg.infosystems.statefin.security;
 
-import kg.infosystems.statefin.entity.User;
+import kg.infosystems.statefin.entity.auth.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;

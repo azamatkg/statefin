@@ -2,6 +2,9 @@ package kg.infosystems.statefin.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import kg.infosystems.statefin.entity.auth.User;
+import kg.infosystems.statefin.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -16,6 +19,9 @@ import java.util.Optional;
 @EnableJpaAuditing(auditorAwareRef = "auditorProvider")
 public class ApplicationConfig {
 
+    @Autowired
+    private UserRepository userRepository;
+
     @Bean
     @Primary
     public ObjectMapper objectMapper() {
@@ -26,14 +32,16 @@ public class ApplicationConfig {
     }
 
     @Bean
-    public AuditorAware<String> auditorProvider() {
+    public AuditorAware<User> auditorProvider() {
         return () -> {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             if (authentication == null || !authentication.isAuthenticated() || 
                 authentication.getPrincipal().equals("anonymousUser")) {
-                return Optional.of("system");
+                return Optional.empty();
             }
-            return Optional.of(authentication.getName());
+            
+            String username = authentication.getName();
+            return userRepository.findByUsername(username);
         };
     }
 

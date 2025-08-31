@@ -4,7 +4,7 @@ import kg.infosystems.statefin.dto.request.PermissionCreateRequest;
 import kg.infosystems.statefin.dto.request.PermissionUpdateRequest;
 import kg.infosystems.statefin.dto.response.PagedResponse;
 import kg.infosystems.statefin.dto.response.PermissionResponse;
-import kg.infosystems.statefin.entity.Permission;
+import kg.infosystems.statefin.entity.auth.Permission;
 import kg.infosystems.statefin.exception.ResourceAlreadyExistsException;
 import kg.infosystems.statefin.exception.ResourceNotFoundException;
 import kg.infosystems.statefin.repository.PermissionRepository;

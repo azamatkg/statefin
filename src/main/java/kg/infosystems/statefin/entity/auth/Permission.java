@@ -1,5 +1,6 @@
-package kg.infosystems.statefin.entity;
+package kg.infosystems.statefin.entity.auth;
 
+import kg.infosystems.statefin.entity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

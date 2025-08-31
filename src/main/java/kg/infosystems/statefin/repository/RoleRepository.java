@@ -1,6 +1,6 @@
 package kg.infosystems.statefin.repository;
 
-import kg.infosystems.statefin.entity.Role;
+import kg.infosystems.statefin.entity.auth.Role;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

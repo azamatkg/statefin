@@ -1,6 +1,6 @@
 package kg.infosystems.statefin.security;
 
-import kg.infosystems.statefin.entity.User;
+import kg.infosystems.statefin.entity.auth.User;
 import kg.infosystems.statefin.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;

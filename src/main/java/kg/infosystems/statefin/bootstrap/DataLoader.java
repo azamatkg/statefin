@@ -1,8 +1,8 @@
 package kg.infosystems.statefin.bootstrap;
 
-import kg.infosystems.statefin.entity.Permission;
-import kg.infosystems.statefin.entity.Role;
-import kg.infosystems.statefin.entity.User;
+import kg.infosystems.statefin.entity.auth.Permission;
+import kg.infosystems.statefin.entity.auth.Role;
+import kg.infosystems.statefin.entity.auth.User;
 import kg.infosystems.statefin.repository.PermissionRepository;
 import kg.infosystems.statefin.repository.RoleRepository;
 import kg.infosystems.statefin.repository.UserRepository;

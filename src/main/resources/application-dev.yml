@@ -17,11 +17,12 @@ spring:
 
 logging:
   level:
-    root: WARN
+    root: INFO
     kg.infosystems: DEBUG
-    org.springframework: WARN
+    org.springframework: INFO
     org.hibernate: WARN
     com.zaxxer.hikari: WARN
+    web: DEBUG
 
 app:
   initial-data:
