@@ -27,11 +27,11 @@ server:
 
 logging:
   level:
-    root: ERROR
-    kg.infosystems: ERROR
-    org.springframework: ERROR
-    org.hibernate: ERROR
-    com.zaxxer.hikari: ERROR
+    root: INFO
+    kg.infosystems: DEBUG
+    org.springframework: DEBUG
+    org.hibernate: DEBUG
+    com.zaxxer.hikari: INFO
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
 

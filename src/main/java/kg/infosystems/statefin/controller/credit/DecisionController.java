@@ -24,30 +24,33 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @Slf4j
 @CrossOrigin(origins = "*")
-@PreAuthorize("hasRole('ADMIN')")
 public class DecisionController {
 
     private final DecisionService decisionService;
 
     @PostMapping
+    @PreAuthorize("hasAuthority('DECISION_WRITE')")
     public ResponseEntity<DecisionResponse> createDecision(@Valid @RequestBody DecisionCreateRequest createDecisionDto) {
         DecisionResponse decision = decisionService.createDecision(createDecisionDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(decision);
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('DECISION_READ')")
     public ResponseEntity<DecisionResponse> getDecisionById(@PathVariable UUID id) {
         DecisionResponse decision = decisionService.getDecisionById(id);
         return ResponseEntity.ok(decision);
     }
 
     @GetMapping
+    @PreAuthorize("hasAuthority('DECISION_READ')")
     public ResponseEntity<Page<DecisionResponse>> getAllDecisions(@PageableDefault(size = 20) Pageable pageable) {
         Page<DecisionResponse> decisions = decisionService.getAllDecisions(pageable);
         return ResponseEntity.ok(decisions);
     }
 
     @GetMapping("/search")
+    @PreAuthorize("hasAuthority('DECISION_READ')")
     public ResponseEntity<Page<DecisionResponse>> searchDecisions(
             @RequestParam String searchTerm,
             @PageableDefault(size = 20) Pageable pageable) {
@@ -56,6 +59,7 @@ public class DecisionController {
     }
 
     @GetMapping("/search-and-filter")
+    @PreAuthorize("hasAuthority('DECISION_READ')")
     public ResponseEntity<Page<DecisionResponse>> searchAndFilterDecisions(
             @RequestParam(required = false) String searchTerm,
             @RequestParam(required = false) Long decisionMakingBodyId,
@@ -75,6 +79,7 @@ public class DecisionController {
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasAuthority('DECISION_WRITE')")
     public ResponseEntity<DecisionResponse> updateDecision(
             @PathVariable UUID id,
             @Valid @RequestBody DecisionUpdateRequest updateDecisionDto) {
@@ -83,12 +88,14 @@ public class DecisionController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('DECISION_DELETE')")
     public ResponseEntity<Void> deleteDecision(@PathVariable UUID id) {
         decisionService.deleteDecision(id);
         return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/exists/number/{number}")
+    @PreAuthorize("hasAuthority('DECISION_READ')")
     public ResponseEntity<Boolean> existsByNumber(@PathVariable String number) {
         // URL decode the path variable since Spring doesn't automatically decode slashes
         String decodedNumber = java.net.URLDecoder.decode(number, java.nio.charset.StandardCharsets.UTF_8);

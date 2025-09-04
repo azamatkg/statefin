@@ -20,30 +20,33 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @Slf4j
 @CrossOrigin(origins = "*")
-@PreAuthorize("hasRole('ADMIN')")
 public class DecisionMakingBodyController {
 
     private final DecisionMakingBodyService decisionMakingBodyService;
 
     @PostMapping
+    @PreAuthorize("hasAuthority('DECISION_MAKING_BODY_WRITE')")
     public ResponseEntity<DecisionMakingBodyResponse> createDecisionMakingBody(@Valid @RequestBody DecisionMakingBodyCreateRequest createDecisionMakingBodyDto) {
         DecisionMakingBodyResponse decisionMakingBody = decisionMakingBodyService.createDecisionMakingBody(createDecisionMakingBodyDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(decisionMakingBody);
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('DECISION_MAKING_BODY_READ')")
     public ResponseEntity<DecisionMakingBodyResponse> getDecisionMakingBodyById(@PathVariable Long id) {
         DecisionMakingBodyResponse decisionMakingBody = decisionMakingBodyService.getDecisionMakingBodyById(id);
         return ResponseEntity.ok(decisionMakingBody);
     }
 
     @GetMapping
+    @PreAuthorize("hasAuthority('DECISION_MAKING_BODY_READ')")
     public ResponseEntity<Page<DecisionMakingBodyResponse>> getAllDecisionMakingBodies(@PageableDefault(size = 20) Pageable pageable) {
         Page<DecisionMakingBodyResponse> decisionMakingBodies = decisionMakingBodyService.getAllDecisionMakingBodies(pageable);
         return ResponseEntity.ok(decisionMakingBodies);
     }
 
     @GetMapping("/search")
+    @PreAuthorize("hasAuthority('DECISION_MAKING_BODY_READ')")
     public ResponseEntity<Page<DecisionMakingBodyResponse>> searchDecisionMakingBodies(
             @RequestParam String searchTerm,
             @PageableDefault(size = 20) Pageable pageable) {
@@ -52,12 +55,14 @@ public class DecisionMakingBodyController {
     }
 
     @GetMapping("/active")
+    @PreAuthorize("hasAuthority('DECISION_MAKING_BODY_READ')")
     public ResponseEntity<Page<DecisionMakingBodyResponse>> getAllActiveDecisionMakingBodies(@PageableDefault(size = 20) Pageable pageable) {
         Page<DecisionMakingBodyResponse> decisionMakingBodies = decisionMakingBodyService.getAllActiveDecisionMakingBodies(pageable);
         return ResponseEntity.ok(decisionMakingBodies);
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasAuthority('DECISION_MAKING_BODY_WRITE')")
     public ResponseEntity<DecisionMakingBodyResponse> updateDecisionMakingBody(
             @PathVariable Long id,
             @Valid @RequestBody DecisionMakingBodyUpdateRequest updateDecisionMakingBodyDto) {
@@ -66,12 +71,14 @@ public class DecisionMakingBodyController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('DECISION_MAKING_BODY_DELETE')")
     public ResponseEntity<Void> deleteDecisionMakingBody(@PathVariable Long id) {
         decisionMakingBodyService.deleteDecisionMakingBody(id);
         return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/exists/name-ru/{nameRu}")
+    @PreAuthorize("hasAuthority('DECISION_MAKING_BODY_READ')")
     public ResponseEntity<Boolean> existsByNameRu(@PathVariable String nameRu) {
         boolean exists = decisionMakingBodyService.existsByNameRu(nameRu);
         return ResponseEntity.ok(exists);

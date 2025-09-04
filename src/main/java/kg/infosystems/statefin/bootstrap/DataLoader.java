@@ -81,7 +81,16 @@ public class DataLoader implements CommandLineRunner {
                 new PermissionData("ROLE_MANAGE", "Manage role permissions", "ROLE", "MANAGE"),
                 new PermissionData("PERMISSION_READ", "Read permission information", "PERMISSION", "READ"),
                 new PermissionData("PERMISSION_WRITE", "Create and update permissions", "PERMISSION", "WRITE"),
-                new PermissionData("PERMISSION_DELETE", "Delete permissions", "PERMISSION", "DELETE")
+                new PermissionData("PERMISSION_DELETE", "Delete permissions", "PERMISSION", "DELETE"),
+                new PermissionData("DECISION_READ", "Read decision information", "DECISION", "READ"),
+                new PermissionData("DECISION_WRITE", "Create and update decisions", "DECISION", "WRITE"),
+                new PermissionData("DECISION_DELETE", "Delete decisions", "DECISION", "DELETE"),
+                new PermissionData("DECISION_TYPE_READ", "Read decision type information", "DECISION_TYPE", "READ"),
+                new PermissionData("DECISION_TYPE_WRITE", "Create and update decision types", "DECISION_TYPE", "WRITE"),
+                new PermissionData("DECISION_TYPE_DELETE", "Delete decision types", "DECISION_TYPE", "DELETE"),
+                new PermissionData("DECISION_MAKING_BODY_READ", "Read decision making body information", "DECISION_MAKING_BODY", "READ"),
+                new PermissionData("DECISION_MAKING_BODY_WRITE", "Create and update decision making bodies", "DECISION_MAKING_BODY", "WRITE"),
+                new PermissionData("DECISION_MAKING_BODY_DELETE", "Delete decision making bodies", "DECISION_MAKING_BODY", "DELETE")
         );
         for (PermissionData permData : permissions) {
             if (!permissionRepository.existsByName(permData.name)) {
@@ -125,7 +134,10 @@ public class DataLoader implements CommandLineRunner {
             List<String> adminPermissions = Arrays.asList(
                     "USER_READ", "USER_WRITE", "USER_DELETE",
                     "ROLE_READ", "ROLE_WRITE", "ROLE_DELETE", "ROLE_MANAGE",
-                    "PERMISSION_READ", "PERMISSION_WRITE", "PERMISSION_DELETE"
+                    "PERMISSION_READ", "PERMISSION_WRITE", "PERMISSION_DELETE",
+                    "DECISION_READ", "DECISION_WRITE", "DECISION_DELETE",
+                    "DECISION_TYPE_READ", "DECISION_TYPE_WRITE", "DECISION_TYPE_DELETE",
+                    "DECISION_MAKING_BODY_READ", "DECISION_MAKING_BODY_WRITE", "DECISION_MAKING_BODY_DELETE"
             );
             assignPermissionsToRole(adminRole, adminPermissions);
             roleRepository.save(adminRole);
